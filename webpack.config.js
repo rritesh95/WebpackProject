@@ -40,7 +40,10 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
     //The HtmlWebpackPlugin will generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+    }) //this plugin will help in create window scopped variables which application can use
   ]
 };
